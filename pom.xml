@@ -16,12 +16,12 @@
 
         <!-- spock testing framework -->
         <spock.scope>test</spock.scope>
-        <spock-core.version>2.0-M2-groovy-3.0</spock-core.version>
+        <spock-core.version>2.0-M2-groovy-2.5</spock-core.version>
         <junit-jupiter.version>5.6.1</junit-jupiter.version>
-        <groovy-all.version>3.0.2</groovy-all.version>
+        <groovy-all.version>2.5.11</groovy-all.version>
         <cglib-nodep.version>3.3.0</cglib-nodep.version>
         <objenesis.version>3.1</objenesis.version>
-        <byte-buddy.version>1.10.9</byte-buddy.version>
+        <byte-buddy.version>1.10.10</byte-buddy.version>
         <gmavenplus-plugin.version>1.8.1</gmavenplus-plugin.version>
         <surefire-junit47.version>3.0.0-M4</surefire-junit47.version>
 
@@ -30,7 +30,7 @@
         <lombok.version>1.18.12</lombok.version>
         <apache.common.lang3.version>3.10</apache.common.lang3.version>
         <fastjson.version>1.2.68</fastjson.version>
-        <guava.version>28.2-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
 
         <!-- maven plugins -->
         <maven.compiler.plugin.java.version>1.8</maven.compiler.plugin.java.version>
@@ -39,7 +39,7 @@
         <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
 
         <!-- scala -->
-        <scala.version>2.13.1</scala.version>
+        <scala.version>2.13.2</scala.version>
         <!-- scope 本地调试时注销 -->
         <scala.scope>provided</scala.scope>
         <scala-maven-plugin.version>4.3.1</scala-maven-plugin.version>
