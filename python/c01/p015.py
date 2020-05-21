@@ -20,21 +20,17 @@ def rank_helper(key, a, lo, hi):
 
 
 class RankTest(unittest.TestCase):
-    @staticmethod
-    def test_rank1():
-        assert rank(1, [1, 10, 100]) == 0
+    def test_rank1(self):
+        self.assertEqual(rank(1, [1, 10, 100]), 0)
 
-    @staticmethod
-    def test_rank2():
-        assert rank(10, [1, 10, 100]) == 1
+    def test_rank2(self):
+        self.assertEqual(rank(10, [1, 10, 100]), 1)
 
-    @staticmethod
-    def test_rank3():
-        assert rank(100, [1, 10, 100]) == 2
+    def test_rank3(self):
+        self.assertEqual(rank(100, [1, 10, 100]), 2)
 
-    @staticmethod
-    def test_rank4():
-        assert rank(1000, [1, 10, 100]) == -1
+    def test_rank4(self):
+        self.assertEqual(rank(1000, [1, 10, 100]), -1)
 
 
 if __name__ == '__main__':

@@ -9,9 +9,8 @@ def gcd(p: int, q: int):
 
 
 class GcdTest(unittest.TestCase):
-    @staticmethod
-    def test_gcd():
-        assert gcd(12, 8) == 4
+    def test_gcd(self):
+        self.assertEqual(gcd(12, 8), 4)
 
 
 if __name__ == '__main__':
