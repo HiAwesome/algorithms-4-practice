@@ -17,7 +17,7 @@
         <!-- spock testing framework -->
         <spock.scope>test</spock.scope>
         <spock-core.version>2.0-M2-groovy-2.5</spock-core.version>
-        <junit-jupiter.version>5.6.1</junit-jupiter.version>
+        <junit-jupiter.version>5.6.2</junit-jupiter.version>
         <groovy-all.version>2.5.11</groovy-all.version>
         <cglib-nodep.version>3.3.0</cglib-nodep.version>
         <objenesis.version>3.1</objenesis.version>
