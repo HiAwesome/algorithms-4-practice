@@ -8,3 +8,7 @@
 * 为命令 java -cp main.jar 建立别名 jcmj.
 * 每次添加新的类时需要重新打包，目前已配置快捷键 Control + Command + m 执行此命令。
 * 在项目根目录下执行命令行 jcmj package_name.class_name parameter 进行测试。
+
+## 书中引用
+
+* 理解链表是学习各种算法和数据结构中最关键的第一步。 ——P074
