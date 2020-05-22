@@ -33,11 +33,11 @@ public class P028BinarySearch {
     }
 
     /**
-     * -> % java -cp main.jar c01.P028BinarySearch data/tinyW.txt < data/tinyT.txt
+     * -> % jcmj c01.P028BinarySearch data/tinyW.txt < data/tinyT.txt
      * 50
      * 99
      * 13
-     * -> % java -cp main.jar c01.P028BinarySearch data/largeW.txt < data/largeT.txt
+     * -> % jcmj c01.P028BinarySearch data/largeW.txt < data/largeT.txt
      * 499569
      * 984875
      * 295754
