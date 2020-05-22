@@ -32,6 +32,20 @@ public class P028BinarySearch {
         return -1;
     }
 
+    /**
+     * -> % java -cp main.jar c01.P028BinarySearch data/tinyW.txt < data/tinyT.txt
+     * 50
+     * 99
+     * 13
+     * -> % java -cp main.jar c01.P028BinarySearch data/largeW.txt < data/largeT.txt
+     * 499569
+     * 984875
+     * 295754
+     * 207807
+     * 140925
+     * 161828
+     * ...   ->   3675966 个 int 值
+     */
     public static void main(String[] args) {
         // Deprecated
         // int[] whiteList = In.readInts(args[0]);
