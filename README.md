@@ -9,6 +9,10 @@
 * 每次添加新的类时需要重新打包，目前已配置快捷键 Control + Command + m 执行此命令。
 * 在项目根目录下执行命令行 jcmj package_name.class_name parameter 进行测试。
 
+## StdIn.isEMpty() 退出问题
+
+参见 [how to make StdIn.isEmpty() return true?](https://stackoverflow.com/questions/43401347/how-to-make-stdin-isempty-return-true), Mac 按 Ctrl + D 即可。
+
 ## 书中引用
 
 * 理解链表是学习各种算法和数据结构中最关键的第一步。 ——P074
