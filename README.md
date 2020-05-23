@@ -11,7 +11,7 @@
 
 ## StdIn.isEMpty() 退出问题
 
-参见 [how to make StdIn.isEmpty() return true?](https://stackoverflow.com/questions/43401347/how-to-make-stdin-isempty-return-true), Mac 按 Ctrl + D 即可。
+参见 [how to make StdIn.isEmpty() return true?](https://stackoverflow.com/questions/43401347/how-to-make-stdin-isempty-return-true)。本级 Mac 测试在 Intellij IDEA 中直接运行类按 Command + D 即可终止输入；执行 Jar 包后在 iTerm2 里或者 IntelliJ IDEA 中的 Terminal 中按 Ctrl + D 即可终止输入。
 
 ## 书中引用
 

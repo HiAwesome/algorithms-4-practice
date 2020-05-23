@@ -1,6 +1,5 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;
 import java.util.Stack;
@@ -9,24 +8,21 @@ import java.util.Stack;
  * @author moqi
  * On 5/23/20 11:26
  */
-@Slf4j
 public class P080Evaluate {
 
     /**
      * -> % jcmj P080Evaluate
      * ( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )
-     * q
      * 101.0
      * -> % jcmj P080Evaluate
      * ( ( 1 + sqrt ( 5.0 ) ) / 2.0 )
-     * q
      * 1.618033988749895
      */
     public static void main(String[] args) {
         Stack<String> ops = new Stack<>();
         Stack<Double> vals = new Stack<>();
 
-        while (true) {
+        while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
             // 在第二行输入 q 退出
             if (Objects.equals("q", s)) {
