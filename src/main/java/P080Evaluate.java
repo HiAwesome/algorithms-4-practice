@@ -12,6 +12,16 @@ import java.util.Stack;
 @Slf4j
 public class P080Evaluate {
 
+    /**
+     * -> % jcmj P080Evaluate
+     * ( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )
+     * q
+     * 101.0
+     * -> % jcmj P080Evaluate
+     * ( ( 1 + sqrt ( 5.0 ) ) / 2.0 )
+     * q
+     * 1.618033988749895
+     */
     public static void main(String[] args) {
         Stack<String> ops = new Stack<>();
         Stack<Double> vals = new Stack<>();
