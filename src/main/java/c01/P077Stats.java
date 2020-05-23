@@ -4,11 +4,12 @@ import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.util.Objects;
+
 /**
  * @author moqi
  * On 5/23/20 10:13
  */
-
 public class P077Stats {
 
     /**
@@ -18,18 +19,15 @@ public class P077Stats {
     public static void main(String[] args) {
         Bag<Double> numbers = new Bag<>();
 
-        while (!StdIn.isEmpty()) {
+        /*
+         * 源代码 while 中为 !StdIn.isEmpty()
+         * 在控制台读取数据时永远不会返回 false，具体可以参考
+         * https://stackoverflow.com/questions/29227821/hasnext-not-work-correctly
+         * 所以更新代码为输入 quit 退出
+         */
+        while (!Objects.equals("quit", StdIn.readAll())) {
             numbers.add(StdIn.readDouble());
         }
-        /*numbers.add(10.0D);
-        numbers.add(100.0D);
-        numbers.add(1000.0D);
-        numbers.add(10000.0D);
-        numbers.add(100000.0D);
-        numbers.add(1000000.0D);
-        numbers.add(10000000.0D);
-        numbers.add(100000000.0D);
-        numbers.add(1000000000.0D);*/
 
         int N = numbers.size();
 
