@@ -1,5 +1,3 @@
-package c01;
-
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
@@ -33,11 +31,11 @@ public class P028BinarySearch {
     }
 
     /**
-     * -> % jcmj c01.P028BinarySearch data/tinyW.txt < data/tinyT.txt
+     * -> % jcmj P028BinarySearch data/tinyW.txt < data/tinyT.txt
      * 50
      * 99
      * 13
-     * -> % jcmj c01.P028BinarySearch data/largeW.txt < data/largeT.txt
+     * -> % jcmj P028BinarySearch data/largeW.txt < data/largeT.txt
      * 499569
      * 984875
      * 295754

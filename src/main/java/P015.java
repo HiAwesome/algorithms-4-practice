@@ -1,5 +1,3 @@
-package c01;
-
 /**
  * @author moqi
  * On 5/21/20 22:30

@@ -1,5 +1,3 @@
-package c01;
-
 import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -12,7 +10,7 @@ import edu.princeton.cs.algs4.StdRandom;
 public class P044Rolls {
 
     /**
-     * -> % jcmj c01.P044Rolls 1000000
+     * -> % jcmj P044Rolls 1000000
      * 166859 1's
      * 167082 2's
      * 166890 3's

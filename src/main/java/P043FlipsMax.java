@@ -1,5 +1,3 @@
-package c01;
-
 import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -9,21 +7,13 @@ import edu.princeton.cs.algs4.StdRandom;
  * On 5/22/20 08:19
  */
 
-public class P042Flips {
+public class P043FlipsMax {
 
     /**
-     * -> % jcmj c01.P042Flips 10
-     * 3 heads
-     * 7 tails
-     * delta: 4
-     * -> % jcmj c01.P042Flips 100
-     * 48 heads
-     * 52 tails
-     * delta: 4
-     * -> % jcmj c01.P042Flips 1000000
-     * 498760 heads
-     * 501240 tails
-     * delta: 2480
+     * -> % jcmj P043FlipsMax 1000000
+     * 499840 heads
+     * 500160 tails
+     * 500160 tails Wins
      */
     public static void main(String[] args) {
         int T = Integer.parseInt(args[0]);
@@ -41,9 +31,18 @@ public class P042Flips {
         StdOut.println(heads);
         StdOut.println(tails);
 
-        int d = heads.tally() - tails.tally();
-        StdOut.println("delta: " + Math.abs(d));
-
+        if (heads.tally() == tails.tally()) {
+            StdOut.println("Tie");
+        } else {
+            StdOut.println(max(heads, tails) + " Wins");
+        }
     }
 
+    private static Counter max(Counter x, Counter y) {
+        if (x.tally() > y.tally()) {
+            return x;
+        } else {
+            return y;
+        }
+    }
 }
