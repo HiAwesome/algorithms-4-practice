@@ -3,8 +3,7 @@ package c01;
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
-
-import java.util.Objects;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author moqi
@@ -25,8 +24,13 @@ public class P077Stats {
          * https://stackoverflow.com/questions/29227821/hasnext-not-work-correctly
          * 所以更新代码为输入 quit 退出
          */
-        while (!Objects.equals("quit", StdIn.readAll())) {
-            numbers.add(StdIn.readDouble());
+        while (true) {
+            String input = StdIn.readLine();
+            if (StringUtils.isNotBlank(input)) {
+                numbers.add(Double.valueOf(input));
+            } else {
+                break;
+            }
         }
 
         int N = numbers.size();
