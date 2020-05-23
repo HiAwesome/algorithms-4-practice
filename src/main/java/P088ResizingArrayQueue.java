@@ -42,9 +42,8 @@ public class P088ResizingArrayQueue<Item> implements Iterable<Item> {
     }
 
     /**
-     * Unit tests the {@code P088ResizingArrayQueue} data type.
-     *
-     * @param args the command-line arguments
+     * -> % jcmj P088ResizingArrayQueue < data/tobe.txt
+     * to be or not to be (2 left on queue)
      */
     public static void main(String[] args) {
         P088ResizingArrayQueue<String> queue = new P088ResizingArrayQueue<String>();
