@@ -12,8 +12,19 @@ import org.apache.commons.lang3.StringUtils;
 public class P077Stats {
 
     /**
-     * Mead: 123456790.00
-     * Std dev: 330326883.39
+     * 100
+     * 99
+     * 101
+     * 120
+     * 98
+     * 107
+     * 109
+     * 81
+     * 101
+     * 90
+     * <p>
+     * Mead: 100.60
+     * Std dev: 10.51
      */
     public static void main(String[] args) {
         Bag<Double> numbers = new Bag<>();
@@ -22,7 +33,6 @@ public class P077Stats {
          * 源代码 while 中为 !StdIn.isEmpty()
          * 在控制台读取数据时永远不会返回 false，具体可以参考
          * https://stackoverflow.com/questions/29227821/hasnext-not-work-correctly
-         * 所以更新代码为输入 quit 退出
          */
         while (true) {
             String input = StdIn.readLine();
