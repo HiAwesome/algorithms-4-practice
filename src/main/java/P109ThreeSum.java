@@ -94,6 +94,16 @@ public class P109ThreeSum {
      * Reads in a sequence of integers from a file, specified as a command-line argument;
      * counts the number of triples sum to exactly zero; prints out the time to perform
      * the computation.
+     * <p>
+     * -> % jcmj P109ThreeSum data/1Kints.txt
+     * elapsed time = 0.236
+     * 70
+     * -> % jcmj P109ThreeSum data/2Kints.txt
+     * elapsed time = 1.338
+     * 528
+     * -> % jcmj P109ThreeSum data/4Kints.txt
+     * elapsed time = 12.405
+     * 4039
      *
      * @param args the command-line arguments
      */
