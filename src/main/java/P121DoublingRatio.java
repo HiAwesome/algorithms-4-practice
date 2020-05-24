@@ -1,10 +1,10 @@
 /******************************************************************************
- *  Compilation:  javac P112DoublingRatio.java
- *  Execution:    java P112DoublingRatio
+ *  Compilation:  javac P121DoublingRatio.java
+ *  Execution:    java P121DoublingRatio
  *  Dependencies: ThreeSum.java Stopwatch.java StdRandom.java StdOut.java
  *
  *
- *  % java P112DoublingRatio
+ *  % java P121DoublingRatio
  *      250     0.0   2.7
  *      500     0.0   4.8
  *     1000     0.1   6.9
@@ -22,7 +22,7 @@ import edu.princeton.cs.algs4.Stopwatch;
 import edu.princeton.cs.algs4.ThreeSum;
 
 /**
- * The {@code P112DoublingRatio} class provides a client for measuring
+ * The {@code P121DoublingRatio} class provides a client for measuring
  * the running time of a method using a doubling ratio test.
  * <p>
  * For additional documentation, see <a href="https://algs4.cs.princeton.edu/14analysis">Section 1.4</a>
@@ -31,11 +31,11 @@ import edu.princeton.cs.algs4.ThreeSum;
  * @author Robert Sedgewick
  * @author Kevin Wayne
  */
-public class P112DoublingRatio {
+public class P121DoublingRatio {
     private static final int MAXIMUM_INTEGER = 1000000;
 
     // This class should not be instantiated.
-    private P112DoublingRatio() {
+    private P121DoublingRatio() {
     }
 
     /**
@@ -60,12 +60,16 @@ public class P112DoublingRatio {
      * Prints table of running times to call {@code ThreeSum.count()}
      * for arrays of size 250, 500, 1000, 2000, and so forth, along
      * with ratios of running times between successive array sizes.
-     * <p>
-     * 250     0.0   0.8
-     * 500     0.0   7.4
-     * 1000     0.1   1.7
-     * 2000     0.4   5.8
-     * 4000     2.7   7.7
+     *
+     * -> % jcmj P121DoublingRatio
+     * 250     0.0   1.3
+     * 500     0.0   5.3
+     * 1000     0.0   2.0
+     * 2000     0.3   7.3
+     * 4000     2.4   7.7
+     * 8000    19.9   8.2
+     *
+     * 可以看到 radio 会趋近于8，也就是 2 的 3 次 方。
      *
      * @param args the command-line arguments
      */
