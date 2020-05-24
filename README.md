@@ -23,6 +23,8 @@
 
 ## 个人思考
 
-* 实现算法的多进程版本：顺序执行的代码只能调度 CPU 的一个内核，所以占用 CPU 最多 100%, 但是实际上目前个人电脑和服务器多核已成标配。意味着即使进行非常复杂的计算，也无法占用 CPU 超过一个内核。在算法中设定线程数的两个限定：第一是能使用的 CPU 内核上限；第二是单个 CPU 执行一种算法子问题的合适容量大小。这两个条件均满足的话不再启动新的进程。达到解决算法问题使用多进程占用多个内核的目的。
-
+* 实现算法的多进程版本：顺序执行的代码只能调度 CPU 的一个内核，所以占用 CPU 最多 100%, 但是实际上目前个人电脑和服务器多核已成标配。意味着即使进行非常复杂的计算，也无法占用 CPU 超过一个内核。在算法中设定线程数的两个限定：第一是能使用的 CPU 内核上限；第二是单个 CPU 执行一种算法子问题的合适容量大小。这两个条件均满足的话不再启动新的进程。达到解决算法问题使用多进程占用多个内核的目的。延伸阅读如下：
+    * [一文看懂Python多进程与多线程编程](https://zhuanlan.zhihu.com/p/46368084) ：Python多进程和多线程哪个快? 由于GIL的存在，很多人认为Python多进程编程更快，针对多核CPU，理论上来说也是采用多进程更能有效利用资源。网上很多人已做过比较，我直接告诉你结论吧。对CPU密集型代码(比如循环计算) - 多进程效率更高；对IO密集型代码(比如文件操作，网络爬虫) - 多线程效率更高。为什么是这样呢？其实也不难理解。对于IO密集型操作，大部分消耗时间其实是等待时间，在等待时间中CPU是不需要工作的，那你在此期间提供双CPU资源也是利用不上的，相反对于CPU密集型代码，2个CPU干活肯定比一个CPU快很多。那么为什么多线程会对IO密集型代码有用呢？这时因为python碰到等待会释放GIL供新的线程使用，实现了线程间的切换。
+    * [how to do multiprocessing in java, and what speed gains to expect?](https://stackoverflow.com/questions/8001966/how-to-do-multiprocessing-in-java-and-what-speed-gains-to-expect) ：No, in fact it would likely make it worse. If you were to switch from multithreading to multiprocessing, then you would effectively launch the JVM multiple times. Starting up a JVM is no simple effort. In fact, the way the JVM on your desktop machine starts is different from the way an enterprise company starts their JVM, just to reduce wait time for applets to launch for the typical end-user.
+    * [Processes and Threads](https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html) ：Threads are sometimes called lightweight processes. Both processes and threads provide an execution environment, but creating a new thread requires fewer resources than creating a new process. Threads exist within a process — every process has at least one. Threads share the process's resources, including memory and open files. This makes for efficient, but potentially problematic, communication. Multithreaded execution is an essential feature of the Java platform. Every application has at least one thread — or several, if you count "system" threads that do things like memory management and signal handling.
 
