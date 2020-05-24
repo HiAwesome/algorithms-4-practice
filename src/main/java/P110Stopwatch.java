@@ -19,6 +19,14 @@ public class P110Stopwatch {
      * It prints to standard output the sum and the amount of time to
      * compute the sum. Note that the discrete sum can be approximated by
      * an integral - the sum should be approximately 2/3 * (n^(3/2) - 1).
+     * <p>
+     * -> % jcmj P110Stopwatch 1000
+     * 2.109746e+04 (0.00 seconds)
+     * 2.109746e+04 (0.00 seconds)
+     * <p>
+     * -> % jcmj P110Stopwatch 2000
+     * 5.965063e+04 (0.00 seconds)
+     * 5.965063e+04 (0.00 seconds)
      *
      * @param args the command-line arguments
      */
