@@ -1,32 +1,20 @@
 /******************************************************************************
- *  Compilation:  javac P138UF.java
- *  Execution:    java P138UF < input.txt
+ *  Compilation:  javac P140QuickFindUF.java
+ *  Execution:  java P140QuickFindUF < input.txt
  *  Dependencies: StdIn.java StdOut.java
  *  Data files:   https://algs4.cs.princeton.edu/15uf/tinyUF.txt
  *                https://algs4.cs.princeton.edu/15uf/mediumUF.txt
  *                https://algs4.cs.princeton.edu/15uf/largeUF.txt
  *
- *  Weighted quick-union by rank with path compression by halving.
- *
- *  % java P138UF < tinyUF.txt
- *  4 3
- *  3 8
- *  6 5
- *  9 4
- *  2 1
- *  5 0
- *  7 2
- *  6 1
- *  2 components
+ *  Quick-find algorithm.
  *
  ******************************************************************************/
-
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * The {@code P138UF} class represents a <em>union–find data type</em>
+ * The {@code P140QuickFindUF} class represents a <em>union–find data type</em>
  * (also known as the <em>disjoint-sets data type</em>).
  * It supports the classic <em>union</em> and <em>find</em> operations,
  * along with a <em>count</em> operation that returns the total number
@@ -58,21 +46,15 @@ import edu.princeton.cs.algs4.StdOut;
  * itself changes during a call to <em>union</em>&mdash;it cannot
  * change during a call to either <em>find</em> or <em>count</em>.
  * <p>
- * This implementation uses <em>weighted quick union by rank</em>
- * with <em>path compression by halving</em>.
- * The constructor takes &Theta;(<em>n</em>) time, where
- * <em>n</em> is the number of elements.
- * The <em>union</em> and <em>find</em> operations take
- * &Theta;(log <em>n</em>) time in the worst case.
- * The <em>count</em> operation takes &Theta;(1) time.
- * Moreover, starting from an empty data structure with <em>n</em> sites,
- * any intermixed sequence of <em>m</em> <em>union</em> and <em>find</em>
- * operations takes <em>O</em>(<em>m</em> &alpha;(<em>n</em>)) time,
- * where &alpha;(<em>n</em>) is the inverse of
- * <a href = "https://en.wikipedia.org/wiki/Ackermann_function#Inverse">Ackermann's function</a>.
+ * This implementation uses <em>quick find</em>.
+ * The constructor takes &Theta;(<em>n</em>) time, where <em>n</em>
+ * is the number of sites.
+ * The <em>find</em>, <em>connected</em>, and <em>count</em>
+ * operations take &Theta;(1) time; the <em>union</em> operation
+ * takes &Theta;(<em>n</em>) time.
  * <p>
  * For alternative implementations of the same API, see
- * {@link QuickUnionUF}, {@link P140QuickFindUF}, and {@link WeightedQuickUnionUF}.
+ * {@link UF}, {@link QuickUnionUF}, and {@link WeightedQuickUnionUF}.
  * For additional documentation, see
  * <a href="https://algs4.cs.princeton.edu/15uf">Section 1.5</a> of
  * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
@@ -81,11 +63,9 @@ import edu.princeton.cs.algs4.StdOut;
  * @author Kevin Wayne
  */
 
-public class P138UF {
-
-    private int[] parent;  // parent[i] = parent of i
-    private byte[] rank;   // rank[i] = rank of subtree rooted at i (never more than 31)
-    private int count;     // number of components
+public class P140QuickFindUF {
+    private int[] id;    // id[i] = component identifier of i
+    private int count;   // number of components
 
     /**
      * Initializes an empty union-find data structure with
@@ -95,15 +75,11 @@ public class P138UF {
      * @param n the number of elements
      * @throws IllegalArgumentException if {@code n < 0}
      */
-    public P138UF(int n) {
-        if (n < 0) throw new IllegalArgumentException();
+    public P140QuickFindUF(int n) {
         count = n;
-        parent = new int[n];
-        rank = new byte[n];
-        for (int i = 0; i < n; i++) {
-            parent[i] = i;
-            rank[i] = 0;
-        }
+        id = new int[n];
+        for (int i = 0; i < n; i++)
+            id[i] = i;
     }
 
     /**
@@ -113,22 +89,11 @@ public class P138UF {
      * if the elements are in different sets, merge the two sets
      * and print the pair to standard output.
      *
-     * -> % jcmj P138UF < data/tinyUF.txt
-     * 4 3
-     * 3 8
-     * 6 5
-     * 9 4
-     * 2 1
-     * 5 0
-     * 7 2
-     * 6 1
-     * 2 components
-     *
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
         int n = StdIn.readInt();
-        P138UF uf = new P138UF(n);
+        P140QuickFindUF uf = new P140QuickFindUF(n);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
@@ -140,6 +105,15 @@ public class P138UF {
     }
 
     /**
+     * Returns the number of sets.
+     *
+     * @return the number of sets (between {@code 1} and {@code n})
+     */
+    public int count() {
+        return count;
+    }
+
+    /**
      * Returns the canonical element of the set containing element {@code p}.
      *
      * @param p an element
@@ -148,20 +122,15 @@ public class P138UF {
      */
     public int find(int p) {
         validate(p);
-        while (p != parent[p]) {
-            parent[p] = parent[parent[p]];    // path compression by halving
-            p = parent[p];
-        }
-        return p;
+        return id[p];
     }
 
-    /**
-     * Returns the number of sets.
-     *
-     * @return the number of sets (between {@code 1} and {@code n})
-     */
-    public int count() {
-        return count;
+    // validate that p is a valid index
+    private void validate(int p) {
+        int n = id.length;
+        if (p < 0 || p >= n) {
+            throw new IllegalArgumentException("index " + p + " is not between 0 and " + (n - 1));
+        }
     }
 
     /**
@@ -177,7 +146,9 @@ public class P138UF {
      */
     @Deprecated
     public boolean connected(int p, int q) {
-        return find(p) == find(q);
+        validate(p);
+        validate(q);
+        return id[p] == id[q];
     }
 
     /**
@@ -190,25 +161,17 @@ public class P138UF {
      *                                  both {@code 0 <= p < n} and {@code 0 <= q < n}
      */
     public void union(int p, int q) {
-        int rootP = find(p);
-        int rootQ = find(q);
-        if (rootP == rootQ) return;
+        validate(p);
+        validate(q);
+        int pID = id[p];   // needed for correctness
+        int qID = id[q];   // to reduce the number of array accesses
 
-        // make root of smaller rank point to root of larger rank
-        if (rank[rootP] < rank[rootQ]) parent[rootP] = rootQ;
-        else if (rank[rootP] > rank[rootQ]) parent[rootQ] = rootP;
-        else {
-            parent[rootQ] = rootP;
-            rank[rootP]++;
-        }
+        // p and q are already in the same component
+        if (pID == qID) return;
+
+        for (int i = 0; i < id.length; i++)
+            if (id[i] == pID) id[i] = qID;
         count--;
     }
 
-    // validate that p is a valid index
-    private void validate(int p) {
-        int n = parent.length;
-        if (p < 0 || p >= n) {
-            throw new IllegalArgumentException("index " + p + " is not between 0 and " + (n - 1));
-        }
-    }
 }
