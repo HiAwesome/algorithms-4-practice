@@ -72,7 +72,7 @@ import edu.princeton.cs.algs4.StdOut;
  * <a href = "https://en.wikipedia.org/wiki/Ackermann_function#Inverse">Ackermann's function</a>.
  * <p>
  * For alternative implementations of the same API, see
- * {@link P141QuickUnionUF}, {@link P140QuickFindUF}, and {@link WeightedQuickUnionUF}.
+ * {@link P141QuickUnionUF}, {@link P140QuickFindUF}, and {@link P145WeightedQuickUnionUF}.
  * For additional documentation, see
  * <a href="https://algs4.cs.princeton.edu/15uf">Section 1.5</a> of
  * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
