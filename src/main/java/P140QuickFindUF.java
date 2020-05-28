@@ -64,7 +64,7 @@ import edu.princeton.cs.algs4.StdOut;
  */
 
 public class P140QuickFindUF {
-    private int[] id;    // id[i] = component identifier of i
+    private int[] value;    // id[i] = component identifier of i
     private int count;   // number of components
 
     /**
@@ -77,9 +77,9 @@ public class P140QuickFindUF {
      */
     public P140QuickFindUF(int n) {
         count = n;
-        id = new int[n];
+        value = new int[n];
         for (int i = 0; i < n; i++)
-            id[i] = i;
+            value[i] = i;
     }
 
     /**
@@ -116,20 +116,20 @@ public class P140QuickFindUF {
     /**
      * Returns the canonical element of the set containing element {@code p}.
      *
-     * @param p an element
+     * @param i an element
      * @return the canonical element of the set containing {@code p}
      * @throws IllegalArgumentException unless {@code 0 <= p < n}
      */
-    public int find(int p) {
-        validate(p);
-        return id[p];
+    public int find(int i) {
+        validate(i);
+        return value[i];
     }
 
     // validate that p is a valid index
-    private void validate(int p) {
-        int n = id.length;
-        if (p < 0 || p >= n) {
-            throw new IllegalArgumentException("index " + p + " is not between 0 and " + (n - 1));
+    private void validate(int i) {
+        int n = value.length;
+        if (i < 0 || i >= n) {
+            throw new IllegalArgumentException("index " + i + " is not between 0 and " + (n - 1));
         }
     }
 
@@ -148,7 +148,7 @@ public class P140QuickFindUF {
     public boolean connected(int p, int q) {
         validate(p);
         validate(q);
-        return id[p] == id[q];
+        return value[p] == value[q];
     }
 
     /**
@@ -163,14 +163,15 @@ public class P140QuickFindUF {
     public void union(int p, int q) {
         validate(p);
         validate(q);
-        int pID = id[p];   // needed for correctness
-        int qID = id[q];   // to reduce the number of array accesses
+        int pValue = value[p];   // needed for correctness
+        int qValue = value[q];   // to reduce the number of array accesses
 
         // p and q are already in the same component
-        if (pID == qID) return;
+        if (pValue == qValue) return;
 
-        for (int i = 0; i < id.length; i++)
-            if (id[i] == pID) id[i] = qID;
+        // 将 value[p] 的值从 pValue 更新为 qValue
+        for (int i = 0; i < value.length; i++)
+            if (value[i] == pValue) value[i] = qValue;
         count--;
     }
 
