@@ -115,22 +115,22 @@ public class P141QuickUnionUF {
     /**
      * Returns the canonical element of the set containing element {@code p}.
      *
-     * @param p an element
+     * @param i an element
      * @return the canonical element of the set containing {@code p}
      * @throws IllegalArgumentException unless {@code 0 <= p < n}
      */
-    public int find(int p) {
-        validate(p);
-        while (p != parent[p])
-            p = parent[p];
-        return p;
+    public int find(int i) {
+        validate(i);
+        while (i != parent[i])
+            i = parent[i];
+        return i;
     }
 
     // validate that p is a valid index
-    private void validate(int p) {
+    private void validate(int i) {
         int n = parent.length;
-        if (p < 0 || p >= n) {
-            throw new IllegalArgumentException("index " + p + " is not between 0 and " + (n - 1));
+        if (i < 0 || i >= n) {
+            throw new IllegalArgumentException("index " + i + " is not between 0 and " + (n - 1));
         }
     }
 
