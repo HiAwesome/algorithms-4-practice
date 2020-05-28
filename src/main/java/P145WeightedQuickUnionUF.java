@@ -126,8 +126,11 @@ public class P145WeightedQuickUnionUF {
      */
     public int find(int p) {
         validate(p);
-        while (p != parent[p])
+
+        while (p != parent[p]) {
+            parent[p] = parent[parent[p]]; // 进行路径压缩，限制树高最多等于 3
             p = parent[p];
+        }
         return p;
     }
 
