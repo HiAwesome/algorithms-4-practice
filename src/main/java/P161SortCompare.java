@@ -112,6 +112,16 @@ public class P161SortCompare {
      * -> % jcmj P161SortCompare Insertion Selection 1000 1000
      * For 1000 random Doubles
      * Insertion is 1.0 times faster than Selection
+     *
+     * -> % jcmj P161SortCompare InsertionX Selection 1000 1000
+     * For 1000 random Doubles
+     *     InsertionX is 1.7 times faster than Selection
+     * -> % jcmj P161SortCompare InsertionX Selection 10000 100
+     * For 10000 random Doubles
+     *     InsertionX is 1.9 times faster than Selection
+     *
+     *
+     *
      */
     public static void main(String[] args) {
         String alg1 = args[0];
