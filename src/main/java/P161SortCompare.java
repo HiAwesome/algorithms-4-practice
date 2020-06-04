@@ -7,7 +7,7 @@
  *  algorithms specified on the command line.
  *
  *  % java P161SortCompare Insertion Selection 1000 100
- *  For 1000 random Doubles 
+ *  For 1000 random Doubles
  *    Insertion is 1.7 times faster than Selection
  *
  *  Note: this program is designed to compare two sorting algorithms with
@@ -89,7 +89,7 @@ public class P161SortCompare {
         return total;
     }
 
-    // Use alg to sort trials random arrays of length n. 
+    // Use alg to sort trials random arrays of length n.
     public static double timeSortedInput(String alg, int n, int trials) {
         double total = 0.0;
         Double[] a = new Double[n];
@@ -130,6 +130,10 @@ public class P161SortCompare {
      *     Shell is 51.9 times faster than Insertion
      *
      *
+     * -> % jcmj P161SortCompare Merge Shell 1000 10
+     * For 1000 random Doubles
+     *     Merge is 1.2 times faster than Shell
+     *
      *
      */
     public static void main(String[] args) {
@@ -139,14 +143,14 @@ public class P161SortCompare {
         int trials = Integer.parseInt(args[3]);
         double time1, time2;
         if (args.length == 5 && args[4].equals("sorted")) {
-            time1 = timeSortedInput(alg1, n, trials);   // Total for alg1. 
-            time2 = timeSortedInput(alg2, n, trials);   // Total for alg2. 
+            time1 = timeSortedInput(alg1, n, trials);   // Total for alg1.
+            time2 = timeSortedInput(alg2, n, trials);   // Total for alg2.
         } else {
-            time1 = timeRandomInput(alg1, n, trials);   // Total for alg1. 
-            time2 = timeRandomInput(alg2, n, trials);   // Total for alg2. 
+            time1 = timeRandomInput(alg1, n, trials);   // Total for alg1.
+            time2 = timeRandomInput(alg2, n, trials);   // Total for alg2.
         }
 
         StdOut.printf("For %d random Doubles\n    %s is", n, alg1);
         StdOut.printf(" %.1f times faster than %s\n", time2 / time1, alg2);
     }
-} 
+}
