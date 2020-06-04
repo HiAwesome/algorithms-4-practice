@@ -9,6 +9,7 @@ public class P162ShellTest {
 
     /**
      * 测试希尔排序
+     * 目前状态下 h 的值为 4、1
      */
     public static void main(String[] args) {
         String[] array = {"1", "8", "3", "7", "2", "9", "0", "-1", "6"};
