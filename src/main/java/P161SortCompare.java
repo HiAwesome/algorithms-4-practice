@@ -113,12 +113,21 @@ public class P161SortCompare {
      * For 1000 random Doubles
      * Insertion is 1.0 times faster than Selection
      *
+     *
      * -> % jcmj P161SortCompare InsertionX Selection 1000 1000
      * For 1000 random Doubles
      *     InsertionX is 1.7 times faster than Selection
      * -> % jcmj P161SortCompare InsertionX Selection 10000 100
      * For 10000 random Doubles
      *     InsertionX is 1.9 times faster than Selection
+     *
+     *
+     * -> % jcmj P161SortCompare Shell Insertion 1000 100
+     * For 1000 random Doubles
+     *     Shell is 3.8 times faster than Insertion
+     * -> % jcmj P161SortCompare Shell Insertion 10000 100
+     * For 10000 random Doubles
+     *     Shell is 51.9 times faster than Insertion
      *
      *
      *
