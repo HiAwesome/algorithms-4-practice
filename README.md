@@ -1,6 +1,6 @@
 # Algorithms 4 Practice
 
-算法 4 的代码练习。
+[算法 4](https://book.douban.com/subject/19952400/) 的代码练习。
 
 ## 命令行调用
 
